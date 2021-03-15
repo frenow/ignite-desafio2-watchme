@@ -3,7 +3,28 @@ import { useEffect, useState } from 'react';
 import '../styles/content.scss';
 import { MovieCard } from './MovieCard';
 
-export function Content({ movies, selectedGenre}) {
+interface MovieProps {
+  Title: string;
+  Poster: string;
+  Ratings: Array<{
+    Source: string;
+    Value: string;
+  }>;
+  Runtime: string;
+}
+
+interface GenreResponseProps {
+  id: number;
+  name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
+  title: string;
+}
+
+interface ContentProps {
+  movies: MovieProps[],
+  selectedGenre: GenreResponseProps,
+}
+
+export function Content({ movies, selectedGenre}: ContentProps) {
 
 
   return (
